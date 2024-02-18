@@ -116,3 +116,21 @@ Modify `GRUB_CMDLINE_LINUX_DEFAULT` in /etc/default/grub to include `mem_sleep_d
 $ sudo update-grub
 ```
 Reboot to activate.
+
+### Flipping the display doesn't disable keyboard
+
+#### Analysis
+
+Open a Konsole, type:
+```
+$ sudo dmesg -w
+```
+then press Ctrl+Shift+), type:
+```
+$ sudo journalctl -f
+```
+basically opening 2 monitoring logs. Now flip the display to see... nothing. This means whatever sensor is used isn't recognized by any part of the Linux stack. To be sure, iio-sensor-proxy is preinstalled in KDE Neon.
+
+#### Solution
+
+Not yet found, probably in some newer kernel version in the future. I've yet to report it to https://bugzilla.kernel.org/, gotta gather information first should be available on Windows since it works there.
