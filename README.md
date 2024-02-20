@@ -94,6 +94,7 @@ $ sudo ln -s /usr/lib/firmware/intel/ibt-1040-4150.sfi /usr/lib/firmware/intel/i
 $ sudo ln -s /usr/lib/firmware/intel/ibt-1040-4150.ddc /usr/lib/firmware/intel/ibt-0040-1050.ddc
 ```
 This symlinks the latest firmware to the expected one.
+Note that this is different from other guide such as [this](https://www.reddit.com/r/Chuwi/comments/15x8n4l/linux_on_chuwi_minibook_x_2023_with_intel_alder/) or [this](https://www.reddit.com/r/Chuwi/comments/1714l7g/fedora_linux_on_minibook_x_n100/) where the files are .xz compressed, in KDE Neon they're uncompressed.
 
 ### With the lid closed, fans are still spinning and battery is still draining
 
