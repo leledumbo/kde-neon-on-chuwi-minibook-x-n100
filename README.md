@@ -141,5 +141,23 @@ Not yet found, probably in some newer kernel version in the future. I've yet to 
 ### Regulate power usage and save battery
 
 1. Install TLP: `$ sudo apt install tlp`, should be enable automatically but if not: `$ sudo systemctl enable --now tlp`, I don't configure anything but feel free to do so if you don't use something (e.g. bluetooth) and want to save more battery.
-2. Install [autocpu-freq](https://github.com/AdnanHodzic/auto-cpufreq)https://github.com/AdnanHodzic/auto-cpufreq: Just follow [the guide](https://github.com/AdnanHodzic/auto-cpufreq?tab=readme-ov-file#installing-auto-cpufreq), pick the `auto-cpufreq-installer` route.
-3. 
+2. Install [autocpu-freq](https://github.com/AdnanHodzic/auto-cpufreq)https://github.com/AdnanHodzic/auto-cpufreq: Just follow [the guide](https://github.com/AdnanHodzic/auto-cpufreq?tab=readme-ov-file#installing-auto-cpufreq), pick the `auto-cpufreq-installer` route and disable Intel P-State.
+3. Reboot for all to work
+
+### Auto switch audio codec on conference call apps (e.g.: Google Meet, Zoom, Slack's Huddle)
+
+By default, PulseAudio and PipeWire server are both installed AND running because there's a partial functionality only PipeWire has.
+Likewise, this profile auto switch feature is only implemented by PipeWire (as of this time of writing).
+
+Optionally, if you need AptX and AAC codecs, execute the following **before** executing below commands:
+```
+$ sudo add-apt-repository ppa:aglasgall/pipewire-extra-bt-codecs
+$ sudo apt update
+```
+Execute:
+```
+$ sudo apt install pipewire-media-session- pulseaudio-module-bluetooth- wireplumber pipewire-audio-client-libraries libldacbt-{abr,enc}2 libspa-0.2-bluetooth 
+$ sudo cp /usr/share/doc/pipewire/examples/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d/
+$ systemctl --user --now enable wireplumber
+```
+to uninstall pipewire-media-session and PulseAudio's bluetooth module (so PipeWire can take over) while installing wireplumber, its ALSA plugin and bluetooth libraries at the same time, copying ALSA configuration as well as enabling wireplumber session manager.
