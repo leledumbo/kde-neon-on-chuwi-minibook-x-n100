@@ -135,3 +135,11 @@ basically opening 2 monitoring logs. Now flip the display to see... nothing. Thi
 #### Solution
 
 Not yet found, probably in some newer kernel version in the future. I've yet to report it to https://bugzilla.kernel.org/, gotta gather information first should be available on Windows since it works there.
+
+## Tips and tricks
+
+### Regulate power usage and save battery
+
+1. Install TLP: `$ sudo apt install tlp`, should be enable automatically but if not: `$ sudo systemctl enable --now tlp`, I don't configure anything but feel free to do so if you don't use something (e.g. bluetooth) and want to save more battery.
+2. Install [autocpu-freq](https://github.com/AdnanHodzic/auto-cpufreq)https://github.com/AdnanHodzic/auto-cpufreq: Just follow [the guide](https://github.com/AdnanHodzic/auto-cpufreq?tab=readme-ov-file#installing-auto-cpufreq), pick the `auto-cpufreq-installer` route.
+3. 
