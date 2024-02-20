@@ -73,6 +73,8 @@ Open System Settings->Display and Monitor, then select what the arrow points
 ![1708272703480](https://github.com/leledumbo/kde-neon-on-chuwi-minibook-x-n100/assets/270400/7236a669-edd7-4fbc-bbf3-c733f33e7fd2)
 and click Apply. This also applies to touchscreen so touchscreen problem in SDDM doesn't apply here.
 
+Optionally, while you're there, change scale to 125% for more convenient UI element size.
+
 ### Bluetooth not working
 
 #### Analysis
